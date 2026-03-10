@@ -33,9 +33,10 @@ We design a **Self-Saliency Score** with strong local–global consistency to es
 
 Formally, the Self-Saliency Score is computed by comparing sliding-window attention distributions with/without the diagonal (self-attention) term:
 
-$$
-Scoret_t = \sum_{j∈Wt} a^{diag}_{t,j} \log \frac{a^{diag}_{t,j} + ϵ}{a^{nodiag}_{t,j} + ϵ}
-$$
+<p align="center">
+    <img src="figures/eq1.png" width= "300">
+    <br>
+</p>
 
 where $W_t$ is the local window index set, $a^{diag}$ and $a^{nodiag}$ are attention distributions with/without self-attention term, and $ϵ$ is a small constant for numerical stability.
 
@@ -43,9 +44,10 @@ where $W_t$ is the local window index set, $a^{diag}$ and $a^{nodiag}$ are atten
 
 To preserve pretrained norm statistics, we propose **NP-Map** that decouples feature direction from magnitude and reinjects pretrained norms into linear attention feature maps:
 
-$$
-u = \frac{f(x)}{\|f(x)\|} \|x\|, \quad \phi_{NP}(x) = [\text{softmax}(u) ⊕ \text{softmax}(-u)]
-$$
+<p align="center">
+    <img src="figures/eq2.png" width= "300">
+    <br>
+</p>
 
 where $f(·)$ is the learnable MLP in feature maps. NP-Map ensures linear attention aligns with the pretrained model’s representational intensity while satisfying non-negativity constraints.
 
@@ -59,7 +61,6 @@ We adopt **chunk-wise parallelization** and **delayed selection** to improve har
 <p align="center">
     <img src="figures/mainfig.png" width= "700">
     <br>
-    <em>Figure 1: Overall architecture of the STILL framework</em>
 </p>
 
 

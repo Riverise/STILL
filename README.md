@@ -101,7 +101,22 @@ Linearizing pre-trained models involves the following steps:
 4. **Launch Training**: Execute the corresponding training scripts
 
    ```bash
-   sh scripts/still_icml_stage1.sh   # Stage 1
-   sh scripts/still_icml_stage2.sh   # Stage 2
+   sh scripts/still_stage1.sh   # Stage 1
+   sh scripts/still_stage2.sh   # Stage 2
    ```
+## Acknowledgements
+
+This code is developed on the top of [LoLCATs](https://github.com/HazyResearch/lolcats) and [Liger](https://github.com/OpenSparseLLMs/Linearization).
+## Citation
+
+If you find this repo helpful, please consider citing us.
+
+```latex
+@article{meng2026still,
+  title={STILL: Selecting Tokens for Intra-Layer Hybrid Attention to Linearize LLMs},
+  author={Meng, Weikang and Huo, Liangyu and Luo, Yadan and Guan, Jiawen and Zhang, Jingyi and Li, Yingjian and Zhang, Zheng},
+  journal={arXiv preprint arXiv:2602.02180},
+  year={2026}
+}
+```
 

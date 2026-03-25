@@ -1,12 +1,12 @@
 data:
   name: "alpaca_cleand"
-  path: "yahma/alpaca-cleaned"
+  path: "data/alpaca-cleaned"
   batch_size: 8
   micro_batch_size: 1
   val_set_size: 200
 model:
   name: 'still_at'
-  pretrained_model_name_or_path: '/your/Still/checkpoints/still_base'
+  pretrained_model_name_or_path: 'checkpoints/still_llama31_8b_base'
   max_length: 1024
   # tokenizer
   add_eos_token: False 

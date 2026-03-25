@@ -1,8 +1,8 @@
 torch==2.5.1
 triton==3.1.0
-transformers
+transformers==4.43.0.dev0
 datasets
 peft
 evaluate
 omegaconf
-flash-linear-attention
+flash-linear-attention==0.4.0

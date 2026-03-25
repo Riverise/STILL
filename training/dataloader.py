@@ -38,7 +38,7 @@ def encode_response(response: str, tokenizer) -> list[int]:
     return tokens
 
 def load_data(config):
-    cache_dir =  "/data/gjw/Linearization/training/cache_data/.cache" 
+    cache_dir =  "~/chenxi/STILL/training/.cache" 
     input_len = config.model.max_length
     concat_data = True
 
@@ -55,7 +55,7 @@ def load_data(config):
     ignore_kwargs = ['concat_data', 'chunk_size', 'pose_kwargs']
     dataset_config = {
         "name": "default", 
-        "path": "yahma/alpaca-cleaned",
+        "path": "data/alpaca-cleaned",
         "chunk_size": input_len,
         "concat_data": concat_data,
         "cache_dir": cache_dir,

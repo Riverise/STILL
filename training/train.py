@@ -7,8 +7,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 import fla
-import liger
-import lolcats
+# import liger
+# import lolcats
 import torch.utils
 import torch.utils.data
 import torch.utils.data.dataloader
@@ -24,39 +24,39 @@ from training.dataloader import load_data
 def train(config):
 
     trainer = FinetuneTrainer
-    if config.model.name == "liger_gla":
-        from liger.models.liger_gla import LigerGLAConfig
-        liger_model_config = LigerGLAConfig()
-    elif config.model.name == "liger_gsa":
-        from liger.models.liger_gsa import LigerGSAConfig
-        liger_model_config = LigerGSAConfig()
-    elif config.model.name == "liger_qwen25_gla":
-        from liger.models.liger_qwen2_gla import LigerQwen2GLAConfig
-        liger_model_config = LigerQwen2GLAConfig()
-    elif config.model.name == "liger_qwen3_gla":
-        from liger.models.liger_qwen3_gla import LigerQwen3GLAConfig
-        liger_model_config = LigerQwen3GLAConfig()
-    elif config.model.name == "liger_qwen3_moe_gla":
-        from liger.models.liger_qwen3_moe_gla import LigerQwen3MoeGLAConfig
-        liger_model_config = LigerQwen3MoeGLAConfig()
-    elif config.model.name == "lolcats_at":
-        # first stage: attention transfer
-        from lolcats.models.lolcats import LolcatsConfig
-        pretrained_config = AutoConfig.from_pretrained(config.model.pretrained_model_name_or_path)
-        liger_model_config = LolcatsConfig.from_pretrained(
-            config.model.pretrained_model_name_or_path,
-            **pretrained_config.to_dict()
-        )
-        trainer = DefaultTrainer
-    elif config.model.name == "lolcats_ar":
-        # second stage
-        from lolcats.models.lolcats import LolcatsConfig
-        pretrained_config = AutoConfig.from_pretrained(config.model.pretrained_model_name_or_path)
-        liger_model_config = LolcatsConfig.from_pretrained(
-            config.model.pretrained_model_name_or_path,
-            **pretrained_config.to_dict()
-        )
-    elif config.model.name == "still_at":
+    # if config.model.name == "liger_gla":
+    #     from liger.models.liger_gla import LigerGLAConfig
+    #     liger_model_config = LigerGLAConfig()
+    # elif config.model.name == "liger_gsa":
+    #     from liger.models.liger_gsa import LigerGSAConfig
+    #     liger_model_config = LigerGSAConfig()
+    # elif config.model.name == "liger_qwen25_gla":
+    #     from liger.models.liger_qwen2_gla import LigerQwen2GLAConfig
+    #     liger_model_config = LigerQwen2GLAConfig()
+    # elif config.model.name == "liger_qwen3_gla":
+    #     from liger.models.liger_qwen3_gla import LigerQwen3GLAConfig
+    #     liger_model_config = LigerQwen3GLAConfig()
+    # elif config.model.name == "liger_qwen3_moe_gla":
+    #     from liger.models.liger_qwen3_moe_gla import LigerQwen3MoeGLAConfig
+    #     liger_model_config = LigerQwen3MoeGLAConfig()
+    # elif config.model.name == "lolcats_at":
+    #     # first stage: attention transfer
+    #     from lolcats.models.lolcats import LolcatsConfig
+    #     pretrained_config = AutoConfig.from_pretrained(config.model.pretrained_model_name_or_path)
+    #     liger_model_config = LolcatsConfig.from_pretrained(
+    #         config.model.pretrained_model_name_or_path,
+    #         **pretrained_config.to_dict()
+    #     )
+    #     trainer = DefaultTrainer
+    # elif config.model.name == "lolcats_ar":
+    #     # second stage
+    #     from lolcats.models.lolcats import LolcatsConfig
+    #     pretrained_config = AutoConfig.from_pretrained(config.model.pretrained_model_name_or_path)
+    #     liger_model_config = LolcatsConfig.from_pretrained(
+    #         config.model.pretrained_model_name_or_path,
+    #         **pretrained_config.to_dict()
+    #     )
+    if config.model.name == "still_at":
         # first stage: attention transfer
         from still.models.still import StillConfig
         pretrained_config = AutoConfig.from_pretrained(config.model.pretrained_model_name_or_path)
